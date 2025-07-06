@@ -1,64 +1,23 @@
 // require("dotenv").config({path:"./env"}) //Old method common js
 
-import dotenv from "dotenv"
-import mongoose from "mongoose"
-import connectDB from "./db/database.js"
-import { app } from "./app.js"
-import PORT from "./constants.js"
+import dotenv from "dotenv";
+import connectDB from "./db/database.js";
+import { app } from "./app.js";
+import { PORT } from "./constants.js";
 
 dotenv.config({
-    path:"./env"
-})
+  path: "./.env",
+});
 
 connectDB()
-.then(()=>{
-    app.listen(PORT,()=>{
-        console.log(`App is listening on port: http://localhost:${PORT} `);
-        
-
-    })
-
-})
-.catch(()=>{
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(`App is listening on port: http://localhost:${PORT} `);
+    });
+  })
+  .catch(() => {
     console.log("Monogodb Connnection Failed ...!!");
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  });
 
 // const express = require('express') // Common js
 // // import express from 'express' //Module js so we can need to add type in package.json
@@ -83,10 +42,8 @@ connectDB()
 
 // app.listen(port,()=>{
 //     console.log(`App is Listening on port ${port}`);
-    
+
 // })
-
-
 
 // /*
 // we need to add proxy http://localhost:3000 in react to connect backend and frontend
